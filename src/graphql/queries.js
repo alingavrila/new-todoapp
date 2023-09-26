@@ -10,6 +10,7 @@ export const getTodo = /* GraphQL */ `
       completed
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -28,6 +29,7 @@ export const listTodos = /* GraphQL */ `
         completed
         createdAt
         updatedAt
+        owner
         __typename
       }
       nextToken

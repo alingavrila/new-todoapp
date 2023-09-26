@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "newtodoapp",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authnewtodoapp396a4ddc",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

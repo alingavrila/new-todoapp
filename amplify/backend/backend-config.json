@@ -1,10 +1,25 @@
 {
   "api": {
     "newtodoapp": {
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "newtodoapp396a4ddc"
+        }
+      ],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authnewtodoapp396a4ddc"
+              }
+            }
+          ],
           "defaultAuthentication": {
             "apiKeyConfig": {
               "apiKeyExpirationDays": 7
