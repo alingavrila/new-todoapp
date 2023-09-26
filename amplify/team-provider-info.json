@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-newtodoapp-dev-154839-authRole",
+      "UnauthRoleArn": "arn:aws:iam::689181424212:role/amplify-newtodoapp-dev-154839-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::689181424212:role/amplify-newtodoapp-dev-154839-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-newtodoapp-dev-154839-deployment",
+      "UnauthRoleName": "amplify-newtodoapp-dev-154839-unauthRole",
+      "StackName": "amplify-newtodoapp-dev-154839",
+      "StackId": "arn:aws:cloudformation:eu-north-1:689181424212:stack/amplify-newtodoapp-dev-154839/cb7920f0-5c7b-11ee-9f46-0ac7def269b6",
+      "AmplifyAppId": "d1i9zue73veofe"
+    },
+    "categories": {
+      "auth": {
+        "newtodoapp396a4ddc": {}
+      },
+      "api": {
+        "newtodoapp": {}
+      }
+    }
+  }
+}
