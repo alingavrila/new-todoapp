@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const TodoItem = ({ completed, id, title, toggleTodo, deleteTodo }) => {
+const TodoItem = ({ completed, id, name, description, toggleTodo, deleteTodo }) => {
     return (
         <li>
             <label>
                 <input
                     type="checkbox"
                     checked={completed}
-                    onChange={e => toggleTodo(id, e.target.checked)}
+                    onChange={() => toggleTodo(id, !completed)}
                 />
-                {title}
+                <div>
+                    <p>{name}</p>
+                    <p>{description}</p>
+                </div>
             </label>
             <div className='task-buttons'>
                 <button className="btn btn-update">
@@ -23,7 +26,7 @@ const TodoItem = ({ completed, id, title, toggleTodo, deleteTodo }) => {
                 </button>
             </div>
         </li>
-    )
+    );
 }
 
-export default TodoItem
+export default TodoItem;

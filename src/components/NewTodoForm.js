@@ -1,33 +1,53 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
 
-const NewTodoForm =({ onSubmit }) => {
-  const [newItem, setNewItem] = useState("")
+const NewTodoForm = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+  });
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    if (newItem === "") return
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    onSubmit(newItem)
+    const { name, description } = formData;
 
-    setNewItem("")
-  }
+    if (name === '' || description === '') {
+      return;
+    }
+
+    onSubmit({ name, description });
+
+    setFormData({
+      name: '',
+      description: '',
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit} className="new-item-form">
       <div className="form-row">
-        <label htmlFor="item">Add New Task</label>
+        <label htmlFor="name">Name</label>
         <input
-          value={newItem}
-          onChange={e => setNewItem(e.target.value)}
           type="text"
-          id="item"
+          id="name"
+          placeholder="Enter name"
+          value={formData.name}
+          onChange={(event) => setFormData({ ...formData, name: event.target.value })}
+        />
+      </div>
+      <div className="form-row">
+        <label htmlFor="description">Description</label>
+        <input
+          type="text"
+          id="description"
+          placeholder="Enter description"
+          value={formData.description}
+          onChange={(event) => setFormData({ ...formData, description: event.target.value })}
         />
       </div>
       <button className="btn">Add</button>
     </form>
-  )
-}
+  );
+};
 
-
-export default NewTodoForm
+export default NewTodoForm;
