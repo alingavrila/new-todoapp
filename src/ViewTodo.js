@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { getTodo } from './graphql/queries';
 
 const ViewTodo = ({ match }) => {

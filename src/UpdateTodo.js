@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { updateTodo } from './graphql/mutations';
 import { getTodo } from './graphql/queries';
 
@@ -44,21 +44,23 @@ const UpdateTodo = ({ match, history }) => {
     return (
         <div>
             <h2>Update Todo</h2>
-            <input
-                type="text"
-                placeholder="Todo Name"
-                value={todo.name}
-                onChange={(e) => setTodo({ ...todo, name: e.target.value })}
-            />
-            <input
-                type="text"
-                placeholder="Todo Description"
-                value={todo.description}
-                onChange={(e) =>
-                    setTodo({ ...todo, description: e.target.value })
-                }
-            />
-            <button onClick={handleUpdate}>Update</button>
+            <div className='form-row'>
+                <input className='new-item-form'
+                    type="text"
+                    placeholder="Todo Name"
+                    value={todo.name}
+                    onChange={(e) => setTodo({ ...todo, name: e.target.value })}
+                />
+                <input className='new-item-form'
+                    type="text"
+                    placeholder="Todo Description"
+                    value={todo.description}
+                    onChange={(e) =>
+                        setTodo({ ...todo, description: e.target.value })
+                    }
+                />
+                <button className='btn' onClick={handleUpdate}>Update</button>
+            </div>
         </div>
     );
 };

@@ -8,13 +8,43 @@
     padding: 0;
     margin: 0 2rem;
   }
+
+  .nav {
+    padding: 15px 0;
+    margin: 0;
+  }
+
+  .nav li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav li a {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+  }
+
+  .nav li a:hover{
+    border-bottom: 2px solid #000;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
   
   .new-item-form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    width: 20%;
-    margin: 2rem 0;
+    margin: 1rem 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
   }
 
   @media (max-width: 600px) {
@@ -28,17 +58,11 @@
     }
   }
   
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  
   .btn {
     background: #00aaff1a;
     border: 1px solid #00A4EF;
     color: #00A4EF;
-    padding: 10px 20px;
+    padding: 7.5px 15px;
     border-radius: 5px;
     cursor: pointer;
     outline: none;
@@ -125,7 +149,7 @@
   .list {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    margin-top: 20px;
   }
   
   .list li {
@@ -134,53 +158,24 @@
     align-items: center;
     justify-content: space-between;
   }
-  
-  .list li label {
+
+  .list li .text-group {
     display: flex;
-    gap: 0.25rem;
-    cursor: pointer;
-    align-items: center;
+    justify-content: space-between;
+    flex: 2;
   }
-  
-  .list li:has(input:focus-visible) label {
-    outline: 1px solid #00A4EF;
+
+  .list li .text-group .description {
+    text-align: left;
+    width: 50%;
   }
-  
-  .list li input {
-    outline: none;
-    width: 0;
-    height: 0;
-    appearance: none;
-    pointer-events: none;
-    position: absolute;
-  }
-  
-  .list li label::before {
-    content: "";
-    display: block;
-    width: 0.9rem;
-    height: 0.9rem;
-    background: #fff;
-    border-radius: 5px;
-    border: 1px solid #000;
+
+  .list li .btn-group{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    flex: 5;
   }
-  
-  .list li label:hover::before {
-    background: #fff;
+
+  .list li .btn-group .btn {
+    margin-left: 10px;
   }
-  
-  .list li:has(input:checked) label::before {
-    content: "✔";
-    background: #fff;
-    color: #000;
-    font-size: 0.75rem;
-    font-weight: bold;
-  }
-  
-  .list li:has(input:checked) label:hover::before {
-    background: #fff;
-  }
-  

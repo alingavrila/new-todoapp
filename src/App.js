@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import { Amplify, API } from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
 import { createTodo, updateTodo, deleteTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import UpdateTodo from './UpdateTodo';
 import ViewTodo from './ViewTodo';
+import Home from './Home';
+import './styles.css'
 
 Amplify.configure(awsExports);
 
@@ -90,51 +92,21 @@ const App = ({ signOut }) => {
   return (
     <Router>
       <div>
-        <h1>Hello</h1>
-        <button onClick={signOut}>Sign out</button>
-
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
+        <Home
+          items={items}
+          createTodoItem={createTodoItem}
+          newTodo={newTodo}
+          setNewTodo={setNewTodo}
+          signOut={signOut}
+          updateTodoItem={updateTodoItem}
+          deleteTodoItem={deleteTodoItem}
+          copyLinkToClipboard={copyLinkToClipboard}
+        />
 
         <Switch>
           <Route path="/update/:id" component={UpdateTodo} />
           <Route path="/view/:id" component={ViewTodo} />
         </Switch>
-
-        <input
-          type="text"
-          placeholder="Todo Name"
-          value={newTodo.name}
-          onChange={(e) => setNewTodo({ ...newTodo, name: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Todo Description"
-          value={newTodo.description}
-          onChange={(e) =>
-            setNewTodo({ ...newTodo, description: e.target.value })
-          }
-        />
-        <button onClick={createTodoItem}>Add Todo</button>
-
-        {items.map((item) => (
-          <div key={item.id}>
-            <div>
-              {item.name} - {item.description}
-            </div>
-            <button onClick={() => updateTodoItem(item.id)}>Update Todo</button>
-            <button onClick={() => deleteTodoItem(item.id)}>Delete Todo</button>
-            <button onClick={() => copyLinkToClipboard(`/view/${item.id}`)}>
-              Copy Link
-            </button>
-            <Link to={`/view/${item.id}`}>
-              <button>View Todo</button>
-            </Link>
-          </div>
-        ))}
       </div>
     </Router>
   );
