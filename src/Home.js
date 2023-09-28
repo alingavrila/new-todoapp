@@ -8,6 +8,7 @@ const Home = ({
     newTodo,
     setNewTodo,
     signOut,
+    copyLinkToClipboard,
     deleteTodoItem,
 }) => {
     // Initialize hooks and context
@@ -30,22 +31,6 @@ const Home = ({
             }));
         }
     }, [searchParams, setNewTodo]);
-
-    function copyLinkToClipboard(link) {
-        // Remove the trailing slash if it exists
-        const linkWithoutTrailingSlash = link.endsWith('/') ? link.slice(0, -1) : link;
-
-        // Create a temporary input element to copy the modified link
-        const input = document.createElement('input');
-        input.value = linkWithoutTrailingSlash;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand('copy');
-        document.body.removeChild(input);
-
-        // Display a success message (you can use a state variable for this)
-        alert('Link copied to clipboard');
-    }
 
     return (
         <div>
