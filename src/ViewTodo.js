@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { API } from 'aws-amplify';
 import { getTodo } from './graphql/queries';
 
-const ViewTodo = ({ match }) => {
-  const todoId = match.params.id;
+const ViewTodo = () => {
+  const { id } = useParams();
 
   const [todo, setTodo] = useState(null);
 
@@ -13,7 +14,7 @@ const ViewTodo = ({ match }) => {
       try {
         const response = await API.graphql({
           query: getTodo,
-          variables: { id: todoId },
+          variables: { id },
           authMode: 'AMAZON_COGNITO_USER_POOLS',
         });
         const fetchedTodo = response.data.getTodo;
@@ -24,7 +25,7 @@ const ViewTodo = ({ match }) => {
     }
 
     fetchTodo();
-  }, [todoId]);
+  }, [id]);
 
   return (
     <div>

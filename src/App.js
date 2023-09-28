@@ -5,7 +5,7 @@ import '@aws-amplify/ui-react/styles.css';
 import awsExports from './aws-exports';
 import { createTodo, updateTodo, deleteTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UpdateTodo from './UpdateTodo';
 import ViewTodo from './ViewTodo';
 import Home from './Home';
@@ -92,21 +92,20 @@ const App = ({ signOut }) => {
   return (
     <Router>
       <div>
-        <Home
-          items={items}
-          createTodoItem={createTodoItem}
-          newTodo={newTodo}
-          setNewTodo={setNewTodo}
-          signOut={signOut}
-          updateTodoItem={updateTodoItem}
-          deleteTodoItem={deleteTodoItem}
-          copyLinkToClipboard={copyLinkToClipboard}
-        />
-
-        <Switch>
-          <Route path="/update/:id" component={UpdateTodo} />
-          <Route path="/view/:id" component={ViewTodo} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home
+            items={items}
+            createTodoItem={createTodoItem}
+            newTodo={newTodo}
+            setNewTodo={setNewTodo}
+            signOut={signOut}
+            updateTodoItem={updateTodoItem}
+            deleteTodoItem={deleteTodoItem}
+            copyLinkToClipboard={copyLinkToClipboard}
+          />} />
+          <Route path="/update/:id" element={<UpdateTodo />} />
+          <Route path="/view/:id" element={<ViewTodo />} />
+        </Routes>
       </div>
     </Router>
   );
