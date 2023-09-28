@@ -18,6 +18,9 @@
               "userPoolConfig": {
                 "userPoolId": "authnewtodoapp396a4ddc"
               }
+            },
+            {
+              "authenticationType": "AWS_IAM"
             }
           ],
           "defaultAuthentication": {

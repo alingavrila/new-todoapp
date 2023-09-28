@@ -13,6 +13,9 @@
       {
         "mode": "AMAZON_COGNITO_USER_POOLS",
         "cognitoUserPoolId": "authnewtodoapp396a4ddc"
+      },
+      {
+        "mode": "AWS_IAM"
       }
     ],
     "conflictResolution": {}
