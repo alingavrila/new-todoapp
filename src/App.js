@@ -83,11 +83,11 @@ const App = ({ signOut }) => {
   }
 
   // Function to copy a link to the clipboard
-  function copyLinkToClipboard(link) {
-    navigator.clipboard.writeText(link).then(function () {
-      console.log('Link copied to clipboard');
-    });
-  }
+  // function copyLinkToClipboard(link) {
+  //   navigator.clipboard.writeText(link).then(function () {
+  //     console.log('Link copied to clipboard');
+  //   });
+  // }
 
   return (
     <Router>
@@ -101,7 +101,7 @@ const App = ({ signOut }) => {
             signOut={signOut}
             updateTodoItem={updateTodoItem}
             deleteTodoItem={deleteTodoItem}
-            copyLinkToClipboard={copyLinkToClipboard}
+            // copyLinkToClipboard={copyLinkToClipboard}
           />} />
           <Route path="/update/:id" element={<UpdateTodo />} />
           <Route path="/view/:id" element={<ViewTodo />} />

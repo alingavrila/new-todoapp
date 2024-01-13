@@ -8,7 +8,7 @@ const Home = ({
     newTodo,
     setNewTodo,
     signOut,
-    copyLinkToClipboard,
+    // copyLinkToClipboard,
     deleteTodoItem,
 }) => {
     // Initialize hooks and context
@@ -96,12 +96,12 @@ const Home = ({
                             >
                                 Delete Todo
                             </button>
-                            <button
+                            {/* <button
                                 className='btn'
                                 onClick={() => copyLinkToClipboard(`https://main.d1i9zue73veofe.amplifyapp.com/view/${item.id}`)}
                             >
                                 Copy Link
-                            </button>
+                            </button> */}
                             <Link to={`/view/${item.id}`}>
                                 <button className='btn'>View Todo</button>
                             </Link>
